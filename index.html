@@ -14,20 +14,27 @@
       integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
       crossorigin="anonymous"
     />
+
+    <!-- Web page title -->
     <title>Question Game</title>
   </head>
 
   <body>
+    <!-- Bootstrap Jumbotron -->
     <div class="jumbotron jumbotron-fluid">
       <div class="container">
         <h1 class="display-4">Welcome to the Question Game</h1>
-        <p class="lead">Click the button to test your knowledge about cats!</p>
+        <p class="lead">
+          Click the button to test your knowledge about cats! For each question,
+          choose OK for True or Cancel for False.
+        </p>
         <a id="btn" class="btn btn-dark btn-lg" href="#" role="button"
           >Get a Question!</a
         >
       </div>
     </div>
 
+    <!-- Bootstrap Carousel -->
     <div
       id="carouselExampleControls"
       class="carousel slide"
@@ -99,11 +106,34 @@
     ></script>
 
     <script>
-      var questions = [{q: "Cats are obligate carnivores.", a: "True."}
-      {q:}
+      // Question game JavaScript
+      // Question and answer array
+      var questions = [
+        { q: "Cats are obligate carnivores.", a: "True" },
+        { q: "Cats love sweets", a: "False" },
+        { q: "Cats meow to communicate with us.", a: "True" },
+        { q: "A group of cats is called a committee.", a: "False" },
+      ];
 
+      //Set up the scorecard
+      var score = 0;
 
-      ]
+      //   Loop through questions
+      for (var i = 0; i < questions.length; i++) {
+        var answer = confirm(questions[i].q);
+
+        if (
+          (answer === true && questions[i].a === "True") ||
+          (answer === false && question[i].a === "False")
+        ) {
+          score++;
+          alert("Correct!");
+        } else {
+          alert("Wrong!");
+        }
+      }
+      //   Final score
+      alert("You got " + score + "/" + questions.length);
     </script>
   </body>
 </html>
