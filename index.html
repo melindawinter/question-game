@@ -25,12 +25,9 @@
       <div class="container">
         <h1 class="display-4">Welcome to the Question Game</h1>
         <p class="lead">
-          Click the button to test your knowledge about cats! For each question,
-          choose OK for True or Cancel for False.
+          Test your knowledge about cats! For each question, choose OK for True
+          or Cancel for False.
         </p>
-        <a id="btn" class="btn btn-dark btn-lg" href="#" role="button"
-          >Get a Question!</a
-        >
       </div>
     </div>
 
@@ -88,6 +85,41 @@
       </a>
     </div>
 
+    <script>
+      // Question game JavaScript
+
+      // Question and answer array
+
+      var questions = [
+        { q: "Cats are obligate carnivores.", a: "t" },
+        { q: "Cats love sweets.", a: "f" },
+        { q: "Cats meow to communicate with us.", a: "t" },
+        { q: "A group of cats is called a committee.", a: "f" },
+      ];
+
+      //Set up the scorecard
+      var score = 0;
+
+      //   Loop through questions
+      for (var i = 0; i < questions.length; i++) {
+        var answer = confirm(questions[i].q);
+
+        if (
+          (answer === true && questions[i].a === "t") ||
+          (answer === false && questions[i].a === "f")
+        ) {
+          score++;
+          alert("Correct!");
+        } else {
+          alert("Wrong!");
+        }
+      }
+
+      //   Final score
+
+      alert("You got " + score + "/" + questions.length);
+    </script>
+
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
       src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -104,36 +136,5 @@
       integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
       crossorigin="anonymous"
     ></script>
-
-    <script>
-      // Question game JavaScript
-      // Question and answer array
-      var questions = [
-        { q: "Cats are obligate carnivores.", a: "True" },
-        { q: "Cats love sweets", a: "False" },
-        { q: "Cats meow to communicate with us.", a: "True" },
-        { q: "A group of cats is called a committee.", a: "False" },
-      ];
-
-      //Set up the scorecard
-      var score = 0;
-
-      //   Loop through questions
-      for (var i = 0; i < questions.length; i++) {
-        var answer = confirm(questions[i].q);
-
-        if (
-          (answer === true && questions[i].a === "True") ||
-          (answer === false && question[i].a === "False")
-        ) {
-          score++;
-          alert("Correct!");
-        } else {
-          alert("Wrong!");
-        }
-      }
-      //   Final score
-      alert("You got " + score + "/" + questions.length);
-    </script>
   </body>
 </html>
